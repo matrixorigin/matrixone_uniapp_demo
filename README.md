@@ -233,11 +233,9 @@
 
 在引导框中关联自己的云服务空间即可。
 
+![img](https://wdcdn.qpic.cn/MTMxMDI3MDI1NjA5MjE5NTc_674470_IHe9wRKNlwsHYsZh_1697104269?w=1100&h=800)
 
-
-![img](https://wdcdn.qpic.cn/MTMxMDI3MDI1NjA5MjE5NTc_674470_IHe9wRKNlwsHYsZh_1697104269?w=1100&h=800)关联
-
-上之后，uniCloud文件夹上会显示云服务空间，打开uniCloud文件夹，文件夹cloudfunctions就是放置云函数和云对象的文件夹。
+关联上之后，uniCloud文件夹上会显示云服务空间，打开uniCloud文件夹，文件夹cloudfunctions就是放置云函数和云对象的文件夹。
 
 
 
