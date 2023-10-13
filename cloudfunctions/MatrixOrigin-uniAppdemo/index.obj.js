@@ -1,62 +1,56 @@
-// 云对象教程: https://uniapp.dcloud.net.cn/uniCloud/cloud-obj
-// jsdoc语法提示教程：https://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/129
-
 'use strict';
-
-
-// get the client
+// get the MatrixOne connection
 const mysql = require('serverless-mysql')({
 	config: {
-		host: 'freetier-01.cn-hangzhou.cluster.aliyun-dev.matrixone.tech',
-		user: '4a5a1db5_4a32_4681_ab49_4140d997ea95:admin:accountadmin',
-		password: '12341234Mo',
-		database: 'motest',
-		port: 6001 //MOcloud 默认6001
+		host: 'hostname',
+		user: 'username',
+		password: 'password',
+		database: 'test',
+		port: 6001 //default 6001
 	}
 })
-module.exports = {
-	_before: function() { // 通用预处理器
 
-		console.log('正在链接MO...............');
-		//连接数据库
+module.exports = {
+	_before: function () { // preprocessor
+		console.log('connecting MO...............');
+		//connect to MO
 		try {
 			mysql.connect();
-			console.log('链接成功！');
+			console.log('connection succeeded!');
 		} catch (e) {
-			console.log('链接失败：', e);
+			console.log('connection failed:', e);
 			return e
 		}
-
-
 	},
+
 	// test link to OBJ
-	testOBJ: function() {
+	testOBJ: function () {
 		return {
-			data: "msg from MO connection！"
+			data: "connected to CloudObject"
 		}
 	},
+
 	// show tables
-	showTables: function() {
+	showTables: function () {
 		try {
 			let results = mysql.query(
 				'show tables;'
 			)
-			console.log("查询记录：", JSON.stringify(results))
+			console.log("succeeded:", JSON.stringify(results))
 			return results
 		} catch (e) {
-			console.log('查询失败：', e);
+			console.log('fail:', e);
 			return e
 		}
-
 	},
+
 	// insert a record 
-	insert: async function() {
-		let nameList = ["黎明", "李华", "成龙", "啊杰", "小光", "菜菜", "猩猩", "小袁", "程程", "灿姝", "强生", "宏伟", "启强", "小猪",
-			"小虎"
+	insert: async function () {
+		let nameList = ["Liming", "Hua", "Jack Chen", "JieJie", "Light", "CaiCai", "Star", "Keke", "Bob", "Jenny", "Mike", "Robert", "Armstrong", "Piggy",
+			"Ruler"
 		];
 		let countryList = ["Chinese", "USA", "UK", "Japan", "Australia"];
 		let genderList = ["male", "female"];
-
 		try {
 			let userData = {
 				username: nameList[Math.floor(Math.random() * nameList.length)],
@@ -65,49 +59,43 @@ module.exports = {
 				gender: genderList[Math.floor(Math.random() * genderList.length)],
 			};
 			let insertRes = await mysql.query('INSERT INTO ?? SET ?', ['users', userData]);
-			console.log('插入成功！：', insertRes);
+			console.log('succeeded:', insertRes);
 			return userData
 		} catch (e) {
-			console.log('插入失败：', e.message);
+			console.log('fail:', e.message);
 			if (e.message.startsWith("ER_DUP_ENTRY")) {
-				return {Error:"重复插入！"}
+				return {
+					Error: "Err:try to insert a record already exist"
+				}
 			} else {
 				return e
-				
 			}
 		}
-
-
 	},
 
 	// delete a record from selest limit 1
-	delete: async function() {
-
+	delete: async function () {
 		try {
-
 			let getRes = await mysql.query('select  * from  ?? limit 1;', ['users']);
 			let delUserName = getRes[0].username;
-
 			let delRes = await mysql.query('Delete from ??   WHERE ?',
 				['users', {
 					username: delUserName,
-				}, ]);
-			console.log('删除成功！：', delRes);
+				},]);
+			console.log('succeeded:', delRes);
 			return delUserName
 		} catch (e) {
-			console.log('删除失败：', e);
+			console.log('fail:', e);
 			return e
 		}
 	},
 
 	// update a record
-	update: async function() {
+	update: async function () {
 		// get the first record
-
 		try {
 			let getRes = await mysql.query('select  * from  ?? limit 1;', ['users']);
-			console.log('查询成功！：', getRes);
-
+			console.log('succeeded:', getRes);
 			// update the first record: age+=10
 			let oldData = JSON.parse(JSON.stringify(getRes[0]))
 			let newAge = oldData.age * 1 + 10 * 1
@@ -118,48 +106,39 @@ module.exports = {
 					['users', {
 						age: newAge,
 					}, {
-						username: getRes[0].username,
-					}]);
-				console.log('更新成功！：', updateRes);
+							username: getRes[0].username,
+						}]);
+				console.log('succeeded:', updateRes);
 
 				//get new data 
 				let newData = await mysql.query('select  * from  ?? WHERE ?;', ['users', {
 					username: oldData.username
 				}]);
-				console.log('查询成功！：', newData);
+				console.log('succeeded：', newData);
 
 				return {
 					oldData: oldData,
 					newData: newData
 				}
 			} catch (e) {
-				console.log('更新失败：', e);
+				console.log('failed:', e);
 				return e
 			}
-
 		} catch (e) {
-			console.log('查询失败：', e);
+			console.log('failed:', e);
 			return e
 		}
-
-
 	},
 
-	// get top 10 record
-	getAll: async function() {
-
+	// get all records
+	getAll: async function () {
 		try {
 			let getRes = await mysql.query('select * from  ?? ;', ['users']);
-			console.log('查询成功！：', getRes);
+			console.log('succeeded:', getRes);
 			return getRes
 		} catch (e) {
-			console.log('查询失败：', e);
+			console.log('failed:', e);
 			return e
 		}
 	},
-
-
-
-
-	// return connection;
 }
