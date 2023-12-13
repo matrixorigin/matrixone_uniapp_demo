@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<view class="title">基础示例-云对象</view>
+		<view class="title">Basic Examples - Cloud Objects</view>
 		<template>
 			<view class="tips">
 				<view>Deme:CRUD a table with fixed data</view> 
