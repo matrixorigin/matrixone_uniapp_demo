@@ -5,7 +5,7 @@
 
 ## 什么是MatrixOne？
 
-[MatrixOne](https://www.matrixorigin.cn/)是一款云原生HTAP数据库，可以完整支持业务开发和数据分析，并且高度兼容MySQL8.0，[MatrixOneCloud](https://www.matrixorigin.cn/moc)是MatrixOne的云上版本，目前已上线Serverless版本，免安装，免运维，按使用量计费，自动扩缩容。MatrixOneCloud目前已经开放公测，[申请公测](https://www.matrixorigin.cn/moc-signup)后，可快速登录你的邮件检查是否已经通过，登录后3秒创建实例，立刻可使用，并且所有用户都有免费额度，欢迎来薅羊毛！
+[MatrixOne](https://www.matrixorigin.cn/)是一款云原生HTAP数据库，可以完整支持业务开发和数据分析，并且高度兼容MySQL8.0，[MatrixOneCloud](https://www.matrixorigin.cn/moc)是MatrixOne的云上版本，目前已上线Serverless版本，免安装，免运维，按使用量计费，自动扩缩容。MatrixOneCloud目前已经开放公测，[申请公测](https://www.matrixorigin.cn/moc-signup)后，可快速登录你的邮箱检查是否已经通过，登录后3秒创建实例，立刻可使用，并且所有用户都有免费额度，欢迎来薅羊毛！
 
 ## 详细教程
 
