@@ -2,9 +2,9 @@
 // get the MatrixOne connection
 const mysql = require('serverless-mysql')({
 	config: {
-		host: 'hostname',
-		user: 'username',
-		password: 'password',
+		host: 'moc.cluster.matrixonecloud.cn',
+		user: 'a123456b_78cd_9e12_fg34_abcd5d6789ef:admin:accountadmin',
+		password: 'your_password',
 		database: 'test',
 		port: 6001 //default 6001
 	}

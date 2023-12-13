@@ -1,11 +1,11 @@
-# MatrixOne Serverless数据库开发微信小程序示例
+# MatrixOne Serverless数据库开发微信小程序教程
 
 
-本教程教你如何使用UniApp的[云对象](https://uniapp.dcloud.net.cn/uniCloud/cloud-obj)连接MatrixOne数据库，并且给出了一个完整的微信小程序开发示例。本示例使用了node.js的[serverless-mysql](https://github.com/jeremydaly/serverless-mysql)连接库，并根据MatrixOne的特点做了一定调整。
+本教程教你如何使用UniApp的[云对象](https://doc.dcloud.net.cn/uniCloud/cloud-obj.html)连接MatrixOne数据库，并且给出了一个完整的微信小程序开发示例。本示例使用了node.js的[serverless-mysql](https://github.com/jeremydaly/serverless-mysql)连接库，并根据MatrixOne的特点做了一定调整。
 
 ## 什么是MatrixOne？
 
-[MatrixOne](https://www.matrixorigin.cn/)是一款云原生HTAP数据库，可以完整支持业务开发和数据分析，并且高度兼容MySQL8.0，[MatrixOneCloud](https://www.matrixorigin.cn/moc)是MatrixOne的云上版本，目前已上线Serverless版本，免安装，免运维，按使用量计费，自动扩缩容。[注册MatrixOne Cloud](https://test.aliyun-dev.matrixone.tech/trial)后3秒创建实例，立刻可使用，并且所有用户都有免费额度，欢迎来薅羊毛！
+[MatrixOne](https://www.matrixorigin.cn/)是一款云原生HTAP数据库，可以完整支持业务开发和数据分析，并且高度兼容MySQL8.0，[MatrixOneCloud](https://www.matrixorigin.cn/moc)是MatrixOne的云上版本，目前已上线Serverless版本，免安装，免运维，按使用量计费，自动扩缩容。MatrixOneCloud目前已经开放公测，[申请公测](https://www.matrixorigin.cn/moc-signup)后，可快速登录你的邮箱检查是否已经通过，登录后3秒创建实例，立刻可使用，并且所有用户都有免费额度，欢迎来薅羊毛！
 
 ## 详细教程
 
@@ -15,8 +15,7 @@
 
 #### 2.申请unicloud云对象空间并将账号与HBuilderX绑定
 
-1. 注册Dcloud账号，点击[开发者中心](https://dev.dcloud.net.cn/pages/common/register?redirect_uri=https%3A%2F%2Funicloud.dcloud.net.cn)注册Dcloud账号。
-
+1. 注册Dcloud账号，点击[开发者中心注册Dcloud账号](https://dev.dcloud.net.cn/pages/common/register?redirect_uri=https%3A%2F%2Funicloud.dcloud.net.cn)。
 2. 登录Dcloud进入[uniCloud控制台](https://unicloud.dcloud.net.cn/)，点击创建新的服务空间，首先完成实名认证。![img](https://wdcdn.qpic.cn/MTMxMDI3MDI1NjA5MjE5NTc_787140_5ZLuijP3l_AfI1Lm_1697103973?w=3840&h=1846)
 
 3. 实名认证之后重新进入[uniCloud控制台](https://unicloud.dcloud.net.cn/)，点击创建新的服务空间。![img](https://wdcdn.qpic.cn/MTMxMDI3MDI1NjA5MjE5NTc_811049_KP11Um7W1OrHOwy0_1697103973?w=3840&h=1846)
@@ -27,7 +26,7 @@
 
 #### 3. 注册MatrixOnecloud账号并获得mysql连接串
 
-1. 目前MatrixOnecloud已经开启公测，点击MatrixOnecloud注册账号。
+1. 目前MatrixOnecloud已经开启公测，点击[申请公测](https://www.matrixorigin.cn/moc-signup)，快速登录你的邮箱，检查是否已经通过，可通过邮件内的链接快速登录。
 
 2. 登录账号进入MOcloud数据库管理平台，点击右上角创建实例。![img](https://wdcdn.qpic.cn/MTMxMDI3MDI1NjA5MjE5NTc_781762__f1RhI_H5UsctEib_1697103973?w=3840&h=1846)![img](https://wdcdn.qpic.cn/MTMxMDI3MDI1NjA5MjE5NTc_867244_hcex2slqP5skuAHR_1697103973?w=3840&h=2160)
 
@@ -85,7 +84,7 @@
 ```vue
 <template>
 	<view class="content">
-		<view class="title">基础示例-云对象</view>
+		<view class="title">Basic Examples - Cloud Objects</view>
 		<template>
 			<view class="tips">
 				<view>Deme:CRUD a table with fixed data</view> 
